@@ -2,9 +2,9 @@
 
 <resources>
     <color name="darkgrey">#757575</color>
-    <color name="colorPrimary">#024265</color>
-    <color name="colorPrimaryDark">#024265</color>
-    <color name="colorAccent">#0274B2</color>
+    <color name="colorPrimary">#FFA422</color>
+    <color name="colorPrimaryDark">#FF862F</color>
+    <color name="colorAccent">#E4D6CD</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
@@ -13,10 +13,10 @@
     <color name="green">#388E3C</color>
 
     <!-- dots inactive colors -->
-    <color name="dot_dark_screen">#026499</color>
+    <color name="dot_dark_screen">#FF862F</color>
 
     <!-- dots active colors -->
-    <color name="dot_light_screen">#448bb2</color>
+    <color name="dot_light_screen">#FFA422</color>
 
     <array name="array_dot_active">
         <item>@color/dot_light_screen</item>
