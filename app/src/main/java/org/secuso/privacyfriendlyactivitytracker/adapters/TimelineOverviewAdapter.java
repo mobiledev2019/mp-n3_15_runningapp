@@ -20,7 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.secuso.privacyfriendlyactivitytracker.R;
-import org.secuso.privacyfriendlyactivitytracker.models.Training;
+import org.secuso.privacyfriendlyactivitytracker.models.TimeLine;
 import org.secuso.privacyfriendlyactivitytracker.utils.UnitHelper;
 
 import java.text.DateFormat;
@@ -31,11 +31,11 @@ import java.util.List;
 
 
 
-public class TrainingOverviewAdapter extends RecyclerView.Adapter<TrainingOverviewAdapter.ViewHolder> {
+public class TimelineOverviewAdapter extends RecyclerView.Adapter<TimelineOverviewAdapter.ViewHolder> {
     public static final int VIEW_TYPE_TRAINING_SESSION = 0;
     public static final int VIEW_TYPE_MONTH_HEADLINE = 1;
     public static final int VIEW_TYPE_SUMMARY = 2;
-    private List<Training> mItems;
+    private List<TimeLine> mItems;
     private OnItemClickListener mItemClickListener;
     private int mExpandedPosition = -1;
     private RecyclerView recyclerView;
@@ -45,13 +45,13 @@ public class TrainingOverviewAdapter extends RecyclerView.Adapter<TrainingOvervi
      *
      * @param items The data displayed
      */
-    public TrainingOverviewAdapter(List<Training> items) {
+    public TimelineOverviewAdapter(List<TimeLine> items) {
         mItems = items;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public TrainingOverviewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public TimelineOverviewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                                  int viewType) {
         View v;
         ViewHolder vh = null;
@@ -78,14 +78,14 @@ public class TrainingOverviewAdapter extends RecyclerView.Adapter<TrainingOvervi
 
     @Override
     public int getItemViewType(int position) {
-        Training training = this.mItems.get(position);
+        TimeLine training = this.mItems.get(position);
         return training.getViewType();
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        Training item = mItems.get(position);
+        TimeLine item = mItems.get(position);
         UnitHelper.FormattedUnitPair distance;
         UnitHelper.FormattedUnitPair calories;
         switch (getItemViewType(position)) {
@@ -205,7 +205,7 @@ public class TrainingOverviewAdapter extends RecyclerView.Adapter<TrainingOvervi
         return (mItems != null) ? mItems.size() : 0;
     }
 
-    public void setItems(List<Training> items) {
+    public void setItems(List<TimeLine> items) {
         this.mItems = items;
         this.notifyDataSetChanged();
     }

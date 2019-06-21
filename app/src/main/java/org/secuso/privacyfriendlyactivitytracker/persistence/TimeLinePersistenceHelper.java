@@ -19,7 +19,7 @@ package org.secuso.privacyfriendlyactivitytracker.persistence;
 
 import android.content.Context;
 
-import org.secuso.privacyfriendlyactivitytracker.models.Training;
+import org.secuso.privacyfriendlyactivitytracker.models.TimeLine;
 
 import java.util.List;
 
@@ -27,23 +27,23 @@ import java.util.List;
 
 
 
-public class TrainingPersistenceHelper {
-    public static final String LOG_CLASS = TrainingPersistenceHelper.class.getName();
+public class TimeLinePersistenceHelper {
+    public static final String LOG_CLASS = TimeLinePersistenceHelper.class.getName();
 
     /**
-     * @deprecated Use {@link TrainingDbHelper#getAllTrainings()} instead.
+     * @deprecated Use {@link TimeLineDbHelper#getAllTrainings()} instead.
      *
      * Gets all training sessions from database
      *
      * @param context The application context
      * @return a list of training sessions
      */
-    public static List<Training> getAllItems(Context context) {
-        return new TrainingDbHelper(context).getAllTrainings();
+    public static List<TimeLine> getAllItems(Context context) {
+        return new TimeLineDbHelper(context).getAllTrainings();
     }
 
     /**
-     * @deprecated Use {@link TrainingDbHelper#getTraining(int)} instead.
+     * @deprecated Use {@link TimeLineDbHelper#getTraining(int)} instead.
      *
      * Gets the specific training session
      *
@@ -51,20 +51,20 @@ public class TrainingPersistenceHelper {
      * @param context The application context
      * @return the requested training session or null
      */
-    public static Training getItem(long id, Context context) {
-        return new TrainingDbHelper(context).getTraining((int) id);
+    public static TimeLine getItem(long id, Context context) {
+        return new TimeLineDbHelper(context).getTraining((int) id);
     }
 
     /**
-     * @deprecated Use {@link TrainingDbHelper#getActiveTraining()} instead.
+     * @deprecated Use {@link TimeLineDbHelper#getActiveTraining()} instead.
      *
      * Gets the active training session
      *
      * @param context The application context
      * @return the requested training session or null
      */
-    public static Training getActiveItem(Context context) {
-        return new TrainingDbHelper(context).getActiveTraining();
+    public static TimeLine getActiveItem(Context context) {
+        return new TimeLineDbHelper(context).getActiveTraining();
     }
 
     /**
@@ -75,7 +75,7 @@ public class TrainingPersistenceHelper {
      * @param context The application context
      * @return the saved training session (with correct id)
      */
-    public static Training save(Training item, Context context) {
+    public static TimeLine save(TimeLine item, Context context) {
         if (item == null) {
             return null;
         }
@@ -98,7 +98,7 @@ public class TrainingPersistenceHelper {
     }
 
     /**
-     * @deprecated Use {@link TrainingDbHelper#deleteTraining(Training)} instead.
+     * @deprecated Use {@link TimeLineDbHelper#deleteTraining(TimeLine)} instead.
      *
      * Deletes the given training session from database
      *
@@ -106,13 +106,13 @@ public class TrainingPersistenceHelper {
      * @param context The application context
      * @return true if deletion was successful else false
      */
-    public static boolean delete(Training item, Context context) {
-        new TrainingDbHelper(context).deleteTraining(item);
+    public static boolean delete(TimeLine item, Context context) {
+        new TimeLineDbHelper(context).deleteTraining(item);
         return true;
     }
 
     /**
-     * @deprecated Use {@link TrainingDbHelper#addTraining(Training)} instead.
+     * @deprecated Use {@link TimeLineDbHelper#addTraining(TimeLine)} instead.
      *
      * Inserts the given training session as new entry.
      *
@@ -120,12 +120,12 @@ public class TrainingPersistenceHelper {
      * @param context The application context
      * @return the inserted id
      */
-    protected static long insert(Training item, Context context) {
-        return new TrainingDbHelper(context).addTraining(item);
+    protected static long insert(TimeLine item, Context context) {
+        return new TimeLineDbHelper(context).addTraining(item);
     }
 
     /**
-     * @deprecated Use {@link TrainingDbHelper#updateTraining(Training)} instead.
+     * @deprecated Use {@link TimeLineDbHelper#updateTraining(TimeLine)} instead.
      *
      * Updates the given training session in database
      *
@@ -133,7 +133,7 @@ public class TrainingPersistenceHelper {
      * @param context The application context
      * @return the number of rows affected
      */
-    protected static int update(Training item, Context context) {
-        return new TrainingDbHelper(context).updateTraining(item);
+    protected static int update(TimeLine item, Context context) {
+        return new TimeLineDbHelper(context).updateTraining(item);
     }
 }

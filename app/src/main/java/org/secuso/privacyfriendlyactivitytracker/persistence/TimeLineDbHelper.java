@@ -24,7 +24,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
-import org.secuso.privacyfriendlyactivitytracker.models.Training;
+import org.secuso.privacyfriendlyactivitytracker.models.TimeLine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ import java.util.List;
 
 
 
-public class TrainingDbHelper extends SQLiteOpenHelper {
+public class TimeLineDbHelper extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.
     public static final int DATABASE_VERSION = 1;
 
@@ -73,14 +73,14 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
      * @param instance Instance of stepCountDbHelper to fetch new db-instance if necessary
      * @return static database instance
      */
-    private static SQLiteDatabase getDatabase(TrainingDbHelper instance){
+    private static SQLiteDatabase getDatabase(TimeLineDbHelper instance){
         if(db == null){
             db = instance.getWritableDatabase();
         }
         return db;
     }
 
-    public TrainingDbHelper(Context context) {
+    public TimeLineDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     public void onCreate(SQLiteDatabase db) {
@@ -99,7 +99,7 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
      * @param item    The training session which should be stored
      * @return the inserted id
      */
-    protected long addTraining(Training item) {
+    protected long addTraining(TimeLine item) {
         ContentValues values = item.toContentValues();
         return getDatabase(this).insert(
                 TABLE_NAME,
@@ -113,7 +113,7 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
      * @param item    The training session which should be stored
      * @return the inserted id
      */
-    protected long addTrainingWithID(Training item) {
+    protected long addTrainingWithID(TimeLine item) {
         ContentValues values = item.toContentValues();
         values.put(KEY_ID, item.getId());
         return getDatabase(this).insert(
@@ -128,9 +128,9 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
      * @param id      the id of the training session
      * @return the requested training session or null
      */
-    public Training getTraining(int id) {
+    public TimeLine getTraining(int id) {
         Cursor c = getCursor(KEY_ID + " = ?", new String[]{String.valueOf(id)});
-        Training trainingSession;
+        TimeLine trainingSession;
         if (c == null) {
             return null;
         }
@@ -138,7 +138,7 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
             trainingSession = null;
         } else {
             c.moveToFirst();
-            trainingSession = Training.from(c);
+            trainingSession = TimeLine.from(c);
         }
 
         c.close();
@@ -150,9 +150,9 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
      *
      * @return the requested training session or null
      */
-    public Training getActiveTraining() {
+    public TimeLine getActiveTraining() {
         Cursor c = getCursor(KEY_END + " = ?", new String[]{"0"});
-        Training trainingSession;
+        TimeLine trainingSession;
         if (c == null) {
             return null;
         }
@@ -160,7 +160,7 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
             trainingSession = null;
         } else {
             c.moveToFirst();
-            trainingSession = Training.from(c);
+            trainingSession = TimeLine.from(c);
         }
 
         c.close();
@@ -172,14 +172,14 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
      *
      * @return a list of training sessions
      */
-    public List<Training> getAllTrainings() {
+    public List<TimeLine> getAllTrainings() {
         Cursor c = getCursor(null, null, KEY_START + " DESC");
-        List<Training> trainingSessions = new ArrayList<>();
+        List<TimeLine> trainingSessions = new ArrayList<>();
         if (c == null) {
             return trainingSessions;
         }
         while (c.moveToNext()) {
-            trainingSessions.add(Training.from(c));
+            trainingSessions.add(TimeLine.from(c));
         }
         c.close();
         return trainingSessions;
@@ -192,7 +192,7 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
      * @param item    The training session to update
      * @return the number of rows affected
      */
-    protected int updateTraining(Training item) {
+    protected int updateTraining(TimeLine item) {
         ContentValues values = item.toContentValues();
 
         String selection = KEY_ID + " = ?";
@@ -211,7 +211,7 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
      *
      * @param item    the item to delete
      */
-    public void deleteTraining(Training item) {
+    public void deleteTraining(TimeLine item) {
         if (item == null || item.getId() <= 0) {
             return;
         }
@@ -266,17 +266,17 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
 
     /**
      * @deprecated This class is deprecated due to structural updates to match pfa sample app.
-     *             Please use {@link TrainingDbHelper} instead.
+     *             Please use {@link TimeLineDbHelper} instead.
      */
     public static abstract class TrainingSessionEntry implements BaseColumns {
-        public static final String TABLE_NAME = TrainingDbHelper.TABLE_NAME;
-        public static final String KEY_NAME = TrainingDbHelper.KEY_NAME;
-        public static final String KEY_DESCRIPTION = TrainingDbHelper.KEY_DESCRIPTION;
-        public static final String KEY_STEPS = TrainingDbHelper.KEY_STEPS;
-        public static final String KEY_CALORIES = TrainingDbHelper.KEY_CALORIES;
-        public static final String KEY_DISTANCE = TrainingDbHelper.KEY_DISTANCE;
-        public static final String KEY_START = TrainingDbHelper.KEY_START;
-        public static final String KEY_END = TrainingDbHelper.KEY_END;
-        public static final String KEY_FEELING = TrainingDbHelper.KEY_FEELING;
+        public static final String TABLE_NAME = TimeLineDbHelper.TABLE_NAME;
+        public static final String KEY_NAME = TimeLineDbHelper.KEY_NAME;
+        public static final String KEY_DESCRIPTION = TimeLineDbHelper.KEY_DESCRIPTION;
+        public static final String KEY_STEPS = TimeLineDbHelper.KEY_STEPS;
+        public static final String KEY_CALORIES = TimeLineDbHelper.KEY_CALORIES;
+        public static final String KEY_DISTANCE = TimeLineDbHelper.KEY_DISTANCE;
+        public static final String KEY_START = TimeLineDbHelper.KEY_START;
+        public static final String KEY_END = TimeLineDbHelper.KEY_END;
+        public static final String KEY_FEELING = TimeLineDbHelper.KEY_FEELING;
     }
 }

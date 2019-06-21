@@ -28,7 +28,7 @@ import android.util.Log;
 
 import org.secuso.privacyfriendlyactivitytracker.Factory;
 import org.secuso.privacyfriendlyactivitytracker.R;
-import org.secuso.privacyfriendlyactivitytracker.persistence.TrainingPersistenceHelper;
+import org.secuso.privacyfriendlyactivitytracker.persistence.TimeLinePersistenceHelper;
 import org.secuso.privacyfriendlyactivitytracker.receivers.HardwareStepCountReceiver;
 import org.secuso.privacyfriendlyactivitytracker.receivers.MotivationAlertReceiver;
 import org.secuso.privacyfriendlyactivitytracker.receivers.StepCountPersistenceReceiver;
@@ -221,7 +221,7 @@ public class StepDetectionServiceHelper {
         boolean isStepDetectionEnabled = sharedPref.getBoolean(context.getString(R.string.pref_step_counter_enabled), true);
         boolean isWalkingModeLearningActive = sharedPref.getBoolean(context.getString(R.string.pref_walking_mode_learning_active), false);
         boolean isDistanceMeasurementActive = sharedPref.getLong(context.getString(R.string.pref_distance_measurement_start_timestamp), -1) > 0;
-        return isStepDetectionEnabled || (TrainingPersistenceHelper.getActiveItem(context) != null) || isWalkingModeLearningActive || isDistanceMeasurementActive;
+        return isStepDetectionEnabled || (TimeLinePersistenceHelper.getActiveItem(context) != null) || isWalkingModeLearningActive || isDistanceMeasurementActive;
     }
 
     /**
@@ -234,7 +234,7 @@ public class StepDetectionServiceHelper {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         boolean isWalkingModeLearningActive = sharedPref.getBoolean(context.getString(R.string.pref_walking_mode_learning_active), false);
         boolean isDistanceMeasurementActive = sharedPref.getLong(context.getString(R.string.pref_distance_measurement_start_timestamp), -1) > 0;
-        boolean isTrainingActive = (TrainingPersistenceHelper.getActiveItem(context) != null);
+        boolean isTrainingActive = (TimeLinePersistenceHelper.getActiveItem(context) != null);
         return isTrainingActive || isWalkingModeLearningActive || isDistanceMeasurementActive;
 
     }

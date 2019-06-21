@@ -36,10 +36,10 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import org.secuso.privacyfriendlyactivitytracker.R;
-import org.secuso.privacyfriendlyactivitytracker.adapters.TrainingOverviewAdapter;
-import org.secuso.privacyfriendlyactivitytracker.models.Training;
+import org.secuso.privacyfriendlyactivitytracker.adapters.TimelineOverviewAdapter;
+import org.secuso.privacyfriendlyactivitytracker.models.TimeLine;
 import org.secuso.privacyfriendlyactivitytracker.models.WalkingMode;
-import org.secuso.privacyfriendlyactivitytracker.persistence.TrainingPersistenceHelper;
+import org.secuso.privacyfriendlyactivitytracker.persistence.TimeLinePersistenceHelper;
 import org.secuso.privacyfriendlyactivitytracker.persistence.WalkingModePersistenceHelper;
 
 import java.text.DateFormat;
@@ -53,22 +53,22 @@ import java.util.Map;
 
 
 
-public class TimeLineOverviewActivity extends AppCompatActivity implements TrainingOverviewAdapter.OnItemClickListener {
+public class TimeLineOverviewActivity extends AppCompatActivity implements TimelineOverviewAdapter.OnItemClickListener {
     public static final String LOG_CLASS = TimeLineOverviewActivity.class.getName();
 
     private Map<Integer, WalkingMode> menuWalkingModes;
 
-    private TrainingOverviewAdapter mAdapter;
+    private TimelineOverviewAdapter mAdapter;
     private RelativeLayout mEmptyView;
 
-    private List<Training> trainings;
+    private List<TimeLine> trainings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training_overview);
 
-        if(TrainingPersistenceHelper.getActiveItem(this) != null){
+        if(TimeLinePersistenceHelper.getActiveItem(this) != null){
             // show current training session if there is one.
             Log.w(LOG_CLASS, "Found active training session");
             startTrainingActivity();
@@ -103,7 +103,7 @@ public class TimeLineOverviewActivity extends AppCompatActivity implements Train
 
         // init recycler view
         // specify the adapter
-        mAdapter = new TrainingOverviewAdapter(new ArrayList<Training>());
+        mAdapter = new TimelineOverviewAdapter(new ArrayList<TimeLine>());
         mAdapter.setOnItemClickListener(this);
         mAdapter.setRecyclerView(mRecyclerView);
         showTrainings();
@@ -128,7 +128,7 @@ public class TimeLineOverviewActivity extends AppCompatActivity implements Train
      */
     protected void showTrainings() {
         // Load training sessions
-        List<Training> trainingsLoadFromDatabase = TrainingPersistenceHelper.getAllItems(this);
+        List<TimeLine> trainingsLoadFromDatabase = TimeLinePersistenceHelper.getAllItems(this);
         trainings = new ArrayList<>();
         int steps = 0;
         double distance = 0;
@@ -139,15 +139,15 @@ public class TimeLineOverviewActivity extends AppCompatActivity implements Train
         Calendar cal = Calendar.getInstance();
         int month = -1;
         for(int i = 0; i < trainingsLoadFromDatabase.size(); i++){
-            Training training = trainingsLoadFromDatabase.get(i);
+            TimeLine training = trainingsLoadFromDatabase.get(i);
             cal.setTimeInMillis(training.getStart());
             if(month != cal.get(Calendar.MONTH)){
                 month = cal.get(Calendar.MONTH);
                 DateFormat df = new SimpleDateFormat("MMMM yyyy", getResources().getConfiguration().locale);
                 // create dummy training entry to display the new month
-                Training monthHeadline = new Training();
+                TimeLine monthHeadline = new TimeLine();
                 monthHeadline.setName(df.format(cal.getTime()));
-                monthHeadline.setViewType(TrainingOverviewAdapter.VIEW_TYPE_MONTH_HEADLINE);
+                monthHeadline.setViewType(TimelineOverviewAdapter.VIEW_TYPE_MONTH_HEADLINE);
                 trainings.add(monthHeadline);
             }
             steps += training.getSteps();
@@ -158,9 +158,9 @@ public class TimeLineOverviewActivity extends AppCompatActivity implements Train
         }
 
         // Add summary
-        Training summary = new Training();
+        TimeLine summary = new TimeLine();
         summary.setEnd(-1);
-        summary.setViewType(TrainingOverviewAdapter.VIEW_TYPE_SUMMARY);
+        summary.setViewType(TimelineOverviewAdapter.VIEW_TYPE_SUMMARY);
         if(trainings.size() > 0) {
             summary.setStart(trainings.get(trainings.size()-1).getStart());
             summary.setEnd(summary.getStart() + (Double.valueOf(duration * 1000)).longValue());
@@ -215,16 +215,16 @@ public class TimeLineOverviewActivity extends AppCompatActivity implements Train
                 String name = edittext.getText().toString();
                 String description = descriptionEditText.getText().toString();
                 float feeling = feelingBar.getRating();
-                Training training;
+                TimeLine training;
                 if (position == null) {
-                    training = new Training();
+                    training = new TimeLine();
                 } else {
                     training = trainings.get(position);
                 }
                 training.setName(name);
                 training.setDescription(description);
                 training.setFeeling(feeling);
-                training = TrainingPersistenceHelper.save(training, getApplicationContext());
+                training = TimeLinePersistenceHelper.save(training, getApplicationContext());
                 if (position == null) {
                     trainings.add(training);
                     mAdapter.setItems(trainings);
@@ -249,8 +249,8 @@ public class TimeLineOverviewActivity extends AppCompatActivity implements Train
      * @param position the position in array of the text which should be removed
      */
     protected void removeTrainingSession(int position) {
-        Training training = trainings.get(position);
-        if (!TrainingPersistenceHelper.delete(training, this)) {
+        TimeLine training = trainings.get(position);
+        if (!TimeLinePersistenceHelper.delete(training, this)) {
             Toast.makeText(this, R.string.operation_failed, Toast.LENGTH_SHORT).show();
             showTrainings();
             return;

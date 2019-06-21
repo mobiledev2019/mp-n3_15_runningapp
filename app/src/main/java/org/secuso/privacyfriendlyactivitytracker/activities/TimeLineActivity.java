@@ -36,10 +36,10 @@ import android.widget.TextView;
 import org.secuso.privacyfriendlyactivitytracker.Factory;
 import org.secuso.privacyfriendlyactivitytracker.R;
 import org.secuso.privacyfriendlyactivitytracker.models.StepCount;
-import org.secuso.privacyfriendlyactivitytracker.models.Training;
+import org.secuso.privacyfriendlyactivitytracker.models.TimeLine;
 import org.secuso.privacyfriendlyactivitytracker.models.WalkingMode;
 import org.secuso.privacyfriendlyactivitytracker.persistence.StepCountPersistenceHelper;
-import org.secuso.privacyfriendlyactivitytracker.persistence.TrainingPersistenceHelper;
+import org.secuso.privacyfriendlyactivitytracker.persistence.TimeLinePersistenceHelper;
 import org.secuso.privacyfriendlyactivitytracker.persistence.WalkingModePersistenceHelper;
 import org.secuso.privacyfriendlyactivitytracker.services.AbstractStepDetectorService;
 import org.secuso.privacyfriendlyactivitytracker.utils.StepDetectionServiceHelper;
@@ -64,7 +64,7 @@ public class TimeLineActivity extends AppCompatActivity implements View.OnClickL
     public static final String LOG_CLASS = TimeLineActivity.class.getName();
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver();
     private Map<Integer, WalkingMode> menuWalkingModes;
-    private Training training;
+    private TimeLine training;
     private List<StepCount> stepCounts;
     private Timer mTimer;
 
@@ -98,7 +98,7 @@ public class TimeLineActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training);
         // get current training instance
-        training = TrainingPersistenceHelper.getActiveItem(this);
+        training = TimeLinePersistenceHelper.getActiveItem(this);
         if (training == null) {
             // if no training is active, start persistence service
             StepDetectionServiceHelper.startPersistenceService(this);
@@ -252,7 +252,7 @@ public class TimeLineActivity extends AppCompatActivity implements View.OnClickL
     protected void stopTraining() {
         updateData();
         this.training.setEnd(Calendar.getInstance().getTimeInMillis());
-        training = TrainingPersistenceHelper.save(this.training, this);
+        training = TimeLinePersistenceHelper.save(this.training, this);
         if(this.mTimer != null){
             this.mTimer.cancel();
             this.mTimer = null;
@@ -321,12 +321,12 @@ public class TimeLineActivity extends AppCompatActivity implements View.OnClickL
                     if(training == null){
                         // no training is active so we create a new session now.
                         // steps were saved now. This allows us to get the exact step counts this now.
-                        training = new Training();
+                        training = new TimeLine();
                         Calendar cal = Calendar.getInstance();
                         training.setStart(cal.getTimeInMillis());
                         training.setName(String.format(getResources().getConfiguration().locale, getString(R.string.training_default_title), WalkingModePersistenceHelper.getActiveMode(TimeLineActivity.this).getName(), cal.get(Calendar.YEAR), cal.get(Calendar.MONTH)+1, cal.get(Calendar.DAY_OF_MONTH)));
                         training.setDescription("");
-                        training = TrainingPersistenceHelper.save(training, TimeLineActivity.this);
+                        training = TimeLinePersistenceHelper.save(training, TimeLineActivity.this);
                         StepDetectionServiceHelper.startAllIfEnabled(getApplicationContext());
                     }
                     // continue with updating the view
