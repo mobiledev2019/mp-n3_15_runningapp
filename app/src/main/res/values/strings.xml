@@ -85,13 +85,13 @@
     <string name="pref_accelerometer_threshold" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.accelerometer_threshold</string>
     <string name="pref_title_accelerometer_threshold">Sensitivity</string>
     <string-array name="pref_keys_accelerometer_threshold">
-        <item>very high</item>
-        <item>higher</item>
-        <item>high</item>
-        <item>normal</item>
-        <item>low</item>
-        <item>lower</item>
-        <item>very low</item>
+        <item>Rất cao</item>
+        <item>cao hơn</item>
+        <item>cao</item>
+        <item>bình thường</item>
+        <item>thấp</item>
+        <item>thấp hơn</item>
+        <item>rất thấp</item>
     </string-array>
     <string-array name="pref_values_accelerometer_threshold" translatable="false">
         <item>0.125</item>
@@ -103,7 +103,7 @@
         <item>1.50</item>
     </string-array>
     <string name="pref_accelerometer_steps_threshold" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.accelerometer_step_threshold</string>
-    <string name="pref_title_accelerometer_steps_threshold">Steps before counting starts</string>
+    <string name="pref_title_accelerometer_steps_threshold">Số bước trước khi bắt đầu</string>
     <string name="pref_default_accelerometer_steps_threshold" translatable="false">10</string>
     <!-- /general settings -->
     <!-- notification settings -->
@@ -144,10 +144,10 @@
 
     <!-- Will be removed on next update -->
     <string name="pref_daily_step_goal" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.daily_step_goal</string>
-    <string name="notification_text_steps">%1$s of %2$s steps walked today.</string>
-    <string name="notification_text_distance">%1$.2f %2$s walked today.</string>
-    <string name="notification_text_calories">Burned %.2f kcal today.</string>
-    <string name="notification_text_default">Pedometer is active.</string>
+    <string name="notification_text_steps">%1$s của %2$s số bước hôm nay.</string>
+    <string name="notification_text_distance">%1$.2f %2$s đã đi hôm nay.</string>
+    <string name="notification_text_calories">Đốt cháy %.2f kcal hôm nay.</string>
+    <string name="notification_text_default">Ptit Pedometer đang hoạt động.</string>
     <!-- /Will be removed on next update -->
 
     <!-- others -->
@@ -164,14 +164,6 @@
     <!-- /others -->
 
     <!-- welcome dialog -->
-    <string name="welcome">Xin chào!</string>
-    <string name="welcome_text">Privacy Friendly Pedometer can count your steps in background and provides an overview about walked steps.</string>
-    <string name="slide_2_title">Customize</string>
-    <string name="slide_2_desc">To improve the calculation of the calories you have burned by walking please customize your personal settings.</string>
-    <string name="slide_2_desc_two">Bạn có thể thay đổi chế độ trên thanh toolbar</string>
-    <string name="slide_3_title">Thông báo</string>
-    <string name="slide_4_title">Widget</string>
-    <string name="slide_4_desc">Thêm widget vào màn hình để theo dõi bước chân</string>
     <string name="next">Tiếp tục</string>
     <string name="skip">Bỏ qua</string>
     <!-- /welcome dialog -->
@@ -235,18 +227,6 @@
     <string name="distance_measurement_start_button">Bắt đầu đo khoảng cách</string>
     <string name="joules">J</string>
     <string name="kilojoules">kJ</string>
-    <string name="slide_5_title">Step Detection</string>
-    <string name="slide_5_desc">The app detects your steps based on different algorithms. On some devices you can define the sensivity of step detection in settings. In addition to that you can add steps you walked without the app or correct the stepcount on daily activity chart.</string>
-    <string name="slide_3_desc">Define custom walking modes and notifications if the achievement of your daily step goal is in danger.</string>
-    <string name="slide_2_desc_three">In the settings you can define your own walking modes with different step lengths.</string>
-    <string name="help_walkingmodes_heading">Walking Modes</string>
-    <string name="help_walkingmodes_selection">You can define your own walking modes like \'Running\' or \'Walking\' in the preferences. Each walking mode has its own step length.</string>
-    <string name="help_training_heading">Training Sessions</string>
-    <string name="help_training_selection">The training sessions can be used to track your training performance. Each session tracks e.g. the training duration, the walked steps and distance.</string>
-    <string name="help_distancemeasurement_heading">Distance Measurement</string>
-    <string name="help_distancemeasurement_selection">The distance measurement feature allows you to measure the distance between the button press \'Start\' and \'Stop\'. The data will not be stored after app restarts. To persist the data you can use the training sessions.</string>
-    <string name="help_correctsteps_heading">Correct steps manually</string>
-    <string name="help_correctsteps_selection">You can modify the detected daily steps in daily report view. This allows you to add steps you walked without the app or to correct the detected number of steps.</string>
-    <string name="slide_5_desc_two">Click on \'Preferences\' to set your step size and customize your personal data.</string>
+
     <string name="title_activity_maps">Map</string>
 </resources>
