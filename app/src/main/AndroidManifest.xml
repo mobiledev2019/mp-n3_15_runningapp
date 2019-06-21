@@ -100,14 +100,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.secuso.privacyfriendlyactivitytracker.activities.PreferencesActivity" />
         </activity>
-        <activity
-            android:name=".activities.WalkingModeLearningActivity"
-            android:label="@string/activity_title_walking_modes"
-            android:parentActivityName=".activities.WalkingModesActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.secuso.privacyfriendlyactivitytracker.activities.WalkingModesActivity" />
-        </activity>
+
         <activity
             android:name=".activities.DistanceMeasurementActivity"
             android:label="@string/action_distance_measurement"

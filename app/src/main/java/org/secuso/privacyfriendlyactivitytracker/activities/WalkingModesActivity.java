@@ -244,11 +244,7 @@ public class WalkingModesActivity extends AppCompatActivity implements WalkingMo
 
     @Override
     public void onLearnClick(View view, int position) {
-        WalkingMode walkingMode = this.walkingModes.get(position);
-        Intent intent = new Intent(this, WalkingModeLearningActivity.class);
-        intent.putExtra(WalkingModeLearningActivity.EXTRA_WALKING_MODE_ID, walkingMode.getId());
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        startActivity(intent);
+
     }
 
     @Override
