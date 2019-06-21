@@ -53,8 +53,8 @@ import java.util.Map;
 
 
 
-public class TrainingOverviewActivity extends AppCompatActivity implements TrainingOverviewAdapter.OnItemClickListener {
-    public static final String LOG_CLASS = TrainingOverviewActivity.class.getName();
+public class TimeLineOverviewActivity extends AppCompatActivity implements TrainingOverviewAdapter.OnItemClickListener {
+    public static final String LOG_CLASS = TimeLineOverviewActivity.class.getName();
 
     private Map<Integer, WalkingMode> menuWalkingModes;
 
@@ -118,7 +118,7 @@ public class TrainingOverviewActivity extends AppCompatActivity implements Train
     }
 
     protected void startTrainingActivity(){
-        Intent intent = new Intent(this, TrainingActivity.class);
+        Intent intent = new Intent(this, TimeLineActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
     }
@@ -183,7 +183,7 @@ public class TrainingOverviewActivity extends AppCompatActivity implements Train
      * @param position if it's an update give the position in array of the element which should be updated else null
      */
     protected void showEditDialog(final Integer position) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(TrainingOverviewActivity.this, R.style.AppTheme_Dialog);
+        AlertDialog.Builder alert = new AlertDialog.Builder(TimeLineOverviewActivity.this, R.style.AppTheme_Dialog);
         LayoutInflater inflater = getLayoutInflater();
         final View dialogLayout = inflater.inflate(R.layout.dialog_training, null);
         final EditText edittext = (EditText) dialogLayout.findViewById(R.id.input_name);

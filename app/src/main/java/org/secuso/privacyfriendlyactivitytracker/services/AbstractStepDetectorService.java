@@ -39,7 +39,7 @@ import android.util.Log;
 
 import org.secuso.privacyfriendlyactivitytracker.R;
 import org.secuso.privacyfriendlyactivitytracker.activities.MainActivity;
-import org.secuso.privacyfriendlyactivitytracker.activities.TrainingActivity;
+import org.secuso.privacyfriendlyactivitytracker.activities.TimeLineActivity;
 import org.secuso.privacyfriendlyactivitytracker.models.StepCount;
 import org.secuso.privacyfriendlyactivitytracker.persistence.StepCountPersistenceHelper;
 import org.secuso.privacyfriendlyactivitytracker.persistence.TrainingPersistenceHelper;
@@ -254,7 +254,7 @@ public abstract class AbstractStepDetectorService extends IntentService implemen
         filterRefreshUpdate.addAction(StepCountPersistenceHelper.BROADCAST_ACTION_STEPS_SAVED);
         filterRefreshUpdate.addAction(StepCountPersistenceHelper.BROADCAST_ACTION_STEPS_INSERTED);
         filterRefreshUpdate.addAction(StepCountPersistenceHelper.BROADCAST_ACTION_STEPS_UPDATED );
-        filterRefreshUpdate.addAction(TrainingActivity.BROADCAST_ACTION_TRAINING_STOPPED);
+        filterRefreshUpdate.addAction(TimeLineActivity.BROADCAST_ACTION_TRAINING_STOPPED);
         LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver, filterRefreshUpdate);
         // load step count from database
         getStepsAtLastSave();
@@ -400,7 +400,7 @@ public abstract class AbstractStepDetectorService extends IntentService implemen
                     getStepsAtLastSave();
                     updateNotification();
                     break;
-                case TrainingActivity.BROADCAST_ACTION_TRAINING_STOPPED:
+                case TimeLineActivity.BROADCAST_ACTION_TRAINING_STOPPED:
                     acquireOrReleaseWakeLock();
                 default:
             }

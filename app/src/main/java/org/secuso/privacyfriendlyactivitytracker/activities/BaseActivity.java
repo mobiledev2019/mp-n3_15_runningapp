@@ -163,7 +163,7 @@ public class BaseActivity extends AppCompatActivity implements OnNavigationItemS
 
                 break;
             case R.id.menu_training:
-                intent = new Intent(this, TrainingOverviewActivity.class);
+                intent = new Intent(this, TimeLineOverviewActivity.class);
                 createBackStack(intent);
                 break;
             case R.id.menu_distance_measurement:

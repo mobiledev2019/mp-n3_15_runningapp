@@ -56,12 +56,12 @@ import java.util.TimerTask;
 
 
 
-public class TrainingActivity extends AppCompatActivity implements View.OnClickListener {
+public class TimeLineActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * Broadcast action identifier for messages broadcasted when new steps were detected
      */
     public static final String BROADCAST_ACTION_TRAINING_STOPPED = "org.secuso.privacyfriendlystepcounter.TRAINING_STOPPED";
-    public static final String LOG_CLASS = TrainingActivity.class.getName();
+    public static final String LOG_CLASS = TimeLineActivity.class.getName();
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver();
     private Map<Integer, WalkingMode> menuWalkingModes;
     private Training training;
@@ -247,7 +247,7 @@ public class TrainingActivity extends AppCompatActivity implements View.OnClickL
     /**
      * Stops the training.
      * Stores the current training session in database.
-     * Redirects to TrainingOverviewActivity.
+     * Redirects to TimeLineOverviewActivity.
      */
     protected void stopTraining() {
         updateData();
@@ -263,7 +263,7 @@ public class TrainingActivity extends AppCompatActivity implements View.OnClickL
         // Broadcasts the Intent to receivers in this app.
         LocalBroadcastManager.getInstance(this).sendBroadcast(localIntent);
         StepDetectionServiceHelper.stopAllIfNotRequired(this);
-        Intent intent = new Intent(this, TrainingOverviewActivity.class);
+        Intent intent = new Intent(this, TimeLineOverviewActivity.class);
         startActivity(intent);
     }
 
@@ -324,9 +324,9 @@ public class TrainingActivity extends AppCompatActivity implements View.OnClickL
                         training = new Training();
                         Calendar cal = Calendar.getInstance();
                         training.setStart(cal.getTimeInMillis());
-                        training.setName(String.format(getResources().getConfiguration().locale, getString(R.string.training_default_title), WalkingModePersistenceHelper.getActiveMode(TrainingActivity.this).getName(), cal.get(Calendar.YEAR), cal.get(Calendar.MONTH)+1, cal.get(Calendar.DAY_OF_MONTH)));
+                        training.setName(String.format(getResources().getConfiguration().locale, getString(R.string.training_default_title), WalkingModePersistenceHelper.getActiveMode(TimeLineActivity.this).getName(), cal.get(Calendar.YEAR), cal.get(Calendar.MONTH)+1, cal.get(Calendar.DAY_OF_MONTH)));
                         training.setDescription("");
-                        training = TrainingPersistenceHelper.save(training, TrainingActivity.this);
+                        training = TrainingPersistenceHelper.save(training, TimeLineActivity.this);
                         StepDetectionServiceHelper.startAllIfEnabled(getApplicationContext());
                     }
                     // continue with updating the view
