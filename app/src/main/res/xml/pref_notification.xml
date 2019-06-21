@@ -1,20 +1,5 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/pref_group_title_permanent_notification">
-        <Preference android:summary="@string/pref_summary_notification_permanent" />
-        <SwitchPreference
-            android:defaultValue="true"
-            android:key="@string/pref_notification_permanent_show_steps"
-            android:title="@string/pref_title_notification_permanent_show_steps" />
-        <SwitchPreference
-            android:defaultValue="false"
-            android:key="@string/pref_notification_permanent_show_distance"
-            android:title="@string/pref_title_notification_permanent_show_distance" />
-        <SwitchPreference
-            android:defaultValue="false"
-            android:key="@string/pref_notification_permanent_show_calories"
-            android:title="@string/pref_title_notification_permanent_show_calories" />
-    </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_group_title_motivation_alert">
         <SwitchPreference

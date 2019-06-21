@@ -38,16 +38,8 @@
     <string name="pref_summary_step_counter_enabled">App sẽ chạy ẩn khi bạn thoát ra </string>
 
     <string name="pref_use_wake_lock" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.use_wake_lock</string>
-    <string name="pref_title_use_wake_lock">Giữ bộ đếm hoạt động</string>
-    <string name="pref_summary_use_wake_lock">Trên một số thiết bị, bộ xử lý ngủ và ngăn các bước đếm. Kích hoạt tính năng này để giữ cho bộ xử lý luôn hoạt động trong khi đếm các bước - điều này có thể làm cạn kiệt pin của bạn!</string>
-
     <string name="pref_use_wake_lock_during_training" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.use_wake_lock_during_training</string>
-    <string name="pref_title_use_wake_lock_during_training">Wake lock during training</string>
-    <string name="pref_summary_use_wake_lock_during_training">For better results during training mode keep processor awake. If app should keep the processor awake at any time this is automatically the case.</string>
-
     <string name="pref_show_velocity" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.show_velocity</string>
-    <string name="pref_title_show_velocity">Show current velocity</string>
-    <string name="pref_summary_show_velocity">The app shows your current velocity in daily report. Access to your location is required to calculate the exact velocity.</string>
 
     <string name="pref_default_daily_step_goal" translatable="false">10000</string>
     <string name="pref_title_daily_step_goal">Số bước mục tiêu hàng ngày</string>
@@ -74,8 +66,6 @@
         <item>J</item>
     </string-array>
 
-    <string name="pref_explanation_weight_and_gender">To improve the calculation of the calories please set your weight and gender.</string>
-    <string name="pref_summary_notification_permanent">The permanent notification is shown when the app counts your steps in background. You can customize what the app should show you.</string>
     <string name="pref_summary_accelerometer_threshold">The app uses the accelerometer of your device. To optimize the step detection adjust the sensitivity, please.</string>
 
     <string name="pref_weight" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.weight</string>
@@ -118,8 +108,7 @@
     <!-- /general settings -->
     <!-- notification settings -->
     <string name="pref_header_notifications">Thông báo</string>
-    <string name="pref_group_title_permanent_notification">Permanent Notification</string>
-    <string name="pref_group_title_motivation_alert">Motivation Alert</string>
+    <string name="pref_group_title_motivation_alert">Nhắc nhở</string>
 
     <string name="pref_notification_permanent_show_steps" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.permanent_notification_show_steps</string>
     <string name="pref_title_notification_permanent_show_steps">Hiện số bước đi được hàng ngày</string>
@@ -129,17 +118,17 @@
     <string name="pref_title_notification_permanent_show_calories">Hiện lượng calories tiêu thụ</string>
 
     <string name="pref_notification_motivation_alert_enabled" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.motivation_alert_enabled</string>
-    <string name="pref_title_notification_motivation_alert_enabled">Enable motivation alert</string>
+    <string name="pref_title_notification_motivation_alert_enabled">Cho phép nhắc nhở</string>
     <string name="pref_notification_motivation_alert_time" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.motivation_alert_time</string>
-    <string name="pref_title_notification_motivation_alert_time">Motivation alert time</string>
+    <string name="pref_title_notification_motivation_alert_time">Thời gian cảnh báo</string>
     <string name="pref_notification_motivation_alert_texts" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.motivation_alert_texts</string>
-    <string name="pref_title_notification_motivation_alert_texts">Motivation notification texts</string>
+    <string name="pref_title_notification_motivation_alert_texts">Nội dung cảnh báo</string>
     <string name="pref_notification_motivation_alert_criterion" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.motivation_alert_criterion</string>
-    <string name="pref_title_notification_motivation_alert_criterion">Motivation alert criterion</string>
+    <string name="pref_title_notification_motivation_alert_criterion">Mức độ bật cảnh báo</string>
     <string-array name="pref_keys_notification_motivation_alert_criterion">
-        <item>less than 90&#65285; of daily step goal</item>
-        <item>less than 70&#65285; of daily step goal</item>
-        <item>less than 50&#65285; of daily step goal</item>
+        <item>ít hơn 90&#65285; mục tiêu hàng ngày</item>
+        <item>ít hơn 70&#65285; mục tiêu hàng ngày</item>
+        <item>ít hơn 50&#65285; mục tiêu hàng ngày</item>
     </string-array>
     <string-array name="pref_values_notification_motivation_alert_criterion" translatable="false">
         <item>90</item>
@@ -191,31 +180,31 @@
     <string-array name="pref_default_notification_motivation_alert_messages">
         <item>Tiếp tục nào, đến lúc phải đi thôi!</item>
     </string-array>
-    <string name="motivation_alert_empty">Set custom alert messages when the achievement of your daily step goal is in danger.\n\nThere will be no alert if no message exists.</string>
-    <string name="motivation_alert_input_title">Set motivation alert message</string>
-    <string name="motivation_alert_input_message">Set your own custom motivation alert. The app notifies you with one of your texts randomly.</string>
-    <string name="motivation_alert_input_empty">Empty motivation alerts are useless, aren\'t they?</string>
-    <string name="activity_title_motivation_alerts">Motivation alerts</string>
-    <string name="motivation_alert_notification_title">Step Counter</string>
+    <string name="motivation_alert_empty">Nhập nội dung thông báo</string>
+    <string name="motivation_alert_input_title">cài nội dung nhắc nhở</string>
+    <string name="motivation_alert_input_message">Nhập nội dung thông báo</string>
+    <string name="motivation_alert_input_empty">Nội dung thông báo trống</string>
+    <string name="activity_title_motivation_alerts">Nhắc nhở</string>
+    <string name="motivation_alert_notification_title">Đếm số bước</string>
 
     <!-- walking modes -->
-    <string name="activity_title_walking_modes">Walking modes</string>
-    <string name="walking_mode_input_title">Walking mode</string>
-    <string name="walking_mode_input_message">Set your custom walking mode:</string>
-    <string name="walking_mode_at_least_one_is_required">At least one walking mode is required.</string>
-    <string name="walking_mode_cannot_delete_active_one">Cannot delete an active walking mode.</string>
-    <string name="walking_mode_set_active">Set as active</string>
-    <string name="walking_mode_menu_learn">Learn</string>
-    <string name="walking_mode_learning_distance_description">Distance to walk:</string>
-    <string name="walking_mode_learning_steps_description">Steps walked:</string>
-    <string name="walking_mode_learning_stop">End learning mode</string>
-    <string name="walking_mode_learning_description">The application can learn the distance per step. Please walk the given distance and press end if you finished.</string>
+    <string name="activity_title_walking_modes">Chế độ đi bộ</string>
+    <string name="walking_mode_input_title">Chế độ đi bộ</string>
+    <string name="walking_mode_input_message">Cài đặt chế độ đi bộ</string>
+    <string name="walking_mode_at_least_one_is_required">Yêu cầu ít nhật chọn một chế độ</string>
+    <string name="walking_mode_cannot_delete_active_one">Có thể xóa 1 hoạt động</string>
+    <string name="walking_mode_set_active">Hoạt dộng</string>
+    <string name="walking_mode_menu_learn">Time line</string>
+    <string name="walking_mode_learning_distance_description">Khoảng cách đi:</string>
+    <string name="walking_mode_learning_steps_description">Số bước đi:</string>
+    <string name="walking_mode_learning_stop">Kết thúc</string>
+    <string name="walking_mode_learning_description"> app sẽ xử lí</string>
     <string name="pref_walking_mode_learning_active" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.walking_mode_learning_active</string>
-    <string name="step_length">Step length:</string>
-    <string name="walking_mode_active_ext"> (active)</string>
-    <string name="walking_mode_input_empty">Name and step length are required. Please fill in!</string>
-    <string name="hint_walking_mode_name">Name</string>
-    <string name="hint_walking_mode_step_length">Step length (Meters)</string>
+    <string name="step_length">Độ dài 1 bước:</string>
+    <string name="walking_mode_active_ext"> (hoạt động)</string>
+    <string name="walking_mode_input_empty">tên và độ dài bước là bắt buộc</string>
+    <string name="hint_walking_mode_name">Tên</string>
+    <string name="hint_walking_mode_step_length">Độ dài bước (Mét)</string>
     <string-array name="pref_default_walking_mode_names">
         <item>Đi bộ</item>
         <item>Chạy</item>
@@ -225,25 +214,25 @@
         <item>0.7</item>
     </string-array>
 
-    <string name="training_overview_empty">It seems like you didn\'t used the training functionality, yet. It\'s time to start your training!</string>
+    <string name="training_overview_empty">chọn thời gian bắt đầu</string>
     <string name="training_input_message" />
-    <string name="training_input_title">Training session</string>
-    <string name="activity_title_training">Training</string>
-    <string name="hint_training_description">Description</string>
-    <string name="hint_training_title">Title</string>
-    <string name="hint_training_feeling">Feeling:</string>
+    <string name="training_input_title">bắt đầu</string>
+    <string name="activity_title_training">Time line</string>
+    <string name="hint_training_description">Mô tả</string>
+    <string name="hint_training_title">Tiêu đê</string>
+    <string name="hint_training_feeling">Cảm nhận:</string>
     <string name="training_card_calories">kcal</string>
     <string name="training_card_distance_km">km</string>
     <string name="training_card_duration">h</string>
     <string name="training_velocity">km/h</string>
-    <string name="training_stop_button">End training now</string>
+    <string name="training_stop_button">Kết thúc</string>
     <string name="training_default_title">%1$s %4$02d.%3$02d.%2$04d</string>
     <string name="activity_summary_chart_legend_stepgoal">Mục tiêu</string>
-    <string name="widget_config_data_set_title">Which data should be displayed?</string>
+    <string name="widget_config_data_set_title">Dữ liệu không được hiển thị</string>
     <string name="action_distance_measurement">Đo khoảng cách</string>
     <string name="action_steps_map">Xem lộ trình chạy</string>
-    <string name="distance_measurement_stop_button">Stop distance measurement</string>
-    <string name="distance_measurement_start_button">Start distance measurement</string>
+    <string name="distance_measurement_stop_button">Dừng đo khoảng cách</string>
+    <string name="distance_measurement_start_button">Bắt đầu đo khoảng cách</string>
     <string name="joules">J</string>
     <string name="kilojoules">kJ</string>
     <string name="slide_5_title">Step Detection</string>

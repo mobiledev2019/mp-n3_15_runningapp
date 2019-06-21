@@ -42,21 +42,6 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="@string/pref_title_accelerometer_steps_threshold" />
-    <SwitchPreference
-        android:defaultValue="true"
-        android:key="@string/pref_use_wake_lock"
-        android:summary="@string/pref_summary_use_wake_lock"
-        android:title="@string/pref_title_use_wake_lock" />
-    <SwitchPreference
-        android:defaultValue="true"
-        android:key="@string/pref_use_wake_lock_during_training"
-        android:summary="@string/pref_summary_use_wake_lock_during_training"
-        android:title="@string/pref_title_use_wake_lock_during_training" />
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="@string/pref_show_velocity"
-        android:summary="@string/pref_summary_show_velocity"
-        android:title="@string/pref_title_show_velocity" />
 
     <PreferenceCategory android:title="@string/pref_group_title_personal_settings">
         <EditTextPreference
@@ -68,7 +53,6 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/pref_title_daily_step_goal" />
-        <Preference android:summary="@string/pref_explanation_weight_and_gender"/>
         <EditTextPreference
             android:defaultValue="@string/pref_default_weight"
             android:inputType="numberDecimal"
