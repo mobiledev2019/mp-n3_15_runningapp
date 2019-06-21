@@ -419,14 +419,6 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
             mCaloriesTitleTextView = (TextView) itemView.findViewById(R.id.calorieTitle);
             mPrevButton = (ImageButton) itemView.findViewById(R.id.prev_btn);
             mNextButton = (ImageButton) itemView.findViewById(R.id.next_btn);
-            mMenuButton = (ImageButton) itemView.findViewById(R.id.periodMoreButton);
-
-            mMenuButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                showPopup(mMenuButton, context);
-                }
-            });
 
             mPrevButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -483,19 +475,11 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
         public AbstractChartViewHolder(View itemView) {
             super(itemView);
             mTitleTextView = (TextView) itemView.findViewById(R.id.period);
-            mMenuButton = (ImageButton) itemView.findViewById(R.id.periodMoreButton);
-            mMenuButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showPopup(mMenuButton, context);
-                }
-            });
         }
 
         public void showPopup(View v, Context c) {
             PopupMenu popup = new PopupMenu(c, v);
             MenuInflater inflater = popup.getMenuInflater();
-            inflater.inflate(R.menu.menu_card_activity_summary, popup.getMenu());
             popup.setOnMenuItemClickListener(this);
             if (mItemClickListener != null) {
                 mItemClickListener.setActivityChartDataTypeChecked(popup.getMenu());
@@ -505,22 +489,8 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
 
         @Override
         public boolean onMenuItemClick(MenuItem item) {
-            ActivityDayChart.DataType dataType;
+            ActivityDayChart.DataType dataType = ActivityDayChart.DataType.STEPS;
             item.setChecked(!item.isChecked());
-
-            switch (item.getItemId()) {
-                case R.id.menu_steps:
-                    dataType = ActivityDayChart.DataType.STEPS;
-                    break;
-                case R.id.menu_distance:
-                    dataType = ActivityDayChart.DataType.DISTANCE;
-                    break;
-                case R.id.menu_calories:
-                    dataType = ActivityDayChart.DataType.CALORIES;
-                    break;
-                default:
-                    return false;
-            }
             if (mItemClickListener != null) {
                 mItemClickListener.onActivityChartDataTypeClicked(dataType);
                 return true;

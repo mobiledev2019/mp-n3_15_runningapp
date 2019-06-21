@@ -64,11 +64,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_chevron_right_black_24dp" />
-                <ImageButton
-                    android:id="@+id/periodMoreButton"
-                    style="@style/SimpleImageButton"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_more_vert_black_24dp" />
+
             </LinearLayout>
 
             <LinearLayout

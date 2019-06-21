@@ -436,18 +436,7 @@ public class WeeklyReportFragment extends Fragment implements ReportAdapter.OnIt
             return;
         }
         if (this.activityChart.getDisplayedDataType() == null) {
-            menu.findItem(R.id.menu_steps).setChecked(true);
-        }
-        switch (this.activityChart.getDisplayedDataType()) {
-            case DISTANCE:
-                menu.findItem(R.id.menu_distance).setChecked(true);
-                break;
-            case CALORIES:
-                menu.findItem(R.id.menu_calories).setChecked(true);
-                break;
-            case STEPS:
-            default:
-                menu.findItem(R.id.menu_steps).setChecked(true);
+            this.activityChart.setDisplayedDataType(ActivityDayChart.DataType.STEPS);
         }
     }
 
