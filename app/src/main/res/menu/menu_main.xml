@@ -16,7 +16,5 @@
     <group android:id="@+id/menu_group_settings" android:checkableBehavior="all">
         <item android:id="@+id/menu_settings" android:title="@string/action_settings" android:icon="@drawable/ic_settings"
             android:orderInCategory="100" app:showAsAction="never" />
-        <item android:id="@+id/menu_about" android:title="@string/action_about" android:icon="@drawable/ic_action_about"
-            android:orderInCategory="100" app:showAsAction="never" />
     </group>
 </menu>

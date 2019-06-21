@@ -174,10 +174,6 @@ public class BaseActivity extends AppCompatActivity implements OnNavigationItemS
                 intent = new Intent(this, MapsActivity.class);
                 createBackStack(intent);
                 break;
-            case R.id.menu_about:
-                intent = new Intent(this, AboutActivity.class);
-                createBackStack(intent);
-                break;
             case R.id.menu_settings:
                 intent = new Intent(this, PreferencesActivity.class);
                 startActivity(intent);

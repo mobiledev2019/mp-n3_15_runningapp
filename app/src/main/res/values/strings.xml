@@ -17,7 +17,7 @@
 -->
 <resources>
     <string name="app_name">PTIT Pedometer</string>
-    <string name="app_name_long">PTIT Friendly Pedometer</string>
+    <string name="app_name_long">PTIT Pedometer</string>
 
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
@@ -26,19 +26,7 @@
     <string name="action_about">Thông tin</string>
     <string name="action_settings">Cài đặt</string>
     <string name="action_main">PTIT Pedometer</string>
-    <string name="action_training">Test Training</string>
-
-    <!-- AboutActivity-->
-    <string name="version_number">Phiên bản</string>
-    <string name="about_author">Tác giả: </string>
-    <string name="about_author_names" translatable="false">Phạm Đức Mạnh</string>
-    <string name="about_author_contributors"> những người đóng góp</string>
-    <string name="about_affiliation">liên kết với</string>
-    <string name="more_info">More information can be found on:</string>
-    <string name="about_third_party_libs">The app uses <a href="https://github.com/PhilJay/MPAndroidChart">MPAndroidChart from Philipp Jahoda</a> (Apache 2 License).</string>
-    <string name="privacy_friendly">Coppy right Phạm Đức Mạnh</string>
-    <string name="github" translatable="false"><a href="https://github.com/manhpd8">Github-ManhPD8</a></string>
-    <string name="url"><a href="https://www.facebook.com/phamducmanh.ptit">FB: Phạm Đức Mạnh</a></string>
+    <string name="action_training">Time line</string>
 
     <!-- ReportFragment -->
     <string name="month">Tháng</string>
@@ -59,7 +47,7 @@
     <!-- Preferences -->
     <!-- general settings -->
     <string name="pref_header_general">Tổng quan</string>
-    <string name="pref_group_title_personal_settings">Personalization</string>
+    <string name="pref_group_title_personal_settings">Cá nhân hóa</string>
 
     <string name="pref_step_counter_enabled" translatable="false">org.secuso.privacyfriendlyactivitytracker.pref.step_counter_enabled</string>
     <string name="pref_title_step_counter_enabled">Cho phép chạy ẩn</string>
